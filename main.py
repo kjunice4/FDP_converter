@@ -123,76 +123,97 @@ Builder.load_string("""
                     
                 Button:
                     id: btn
-                    text: "V"
+                    text: 'Input File'
+                    on_parent: dropdown.dismiss()
                     on_release: dropdown.open(self)
                     size_hint_y: None
                     height: 200
+                    background_color: 0, 1 , 0 , 1
+                
+                    DropDown:
+                        id: dropdown
+                        on_select: btn.text = '{}'.format(args[1])
+                
+                        Button:
+                            text: 'First Item'
+                            size_hint_y: None
+                            height: 200
+                            background_color: 0, 1 , 1 , 1
+                            on_release: 
+                                dropdown.select('First Item')
+                                input.text = "A"
+                
+                        Button:
+                            text: '2nd Item'
+                            size_hint_y: None
+                            height: 200
+                            background_color: 0, 1 , 1 , 1
+                            on_release: 
+                                dropdown.select('Third Item')
+                                input.text = "B"                                
+                
+                        Button:
+                            text: 'Third Item'
+                            size_hint_y: None
+                            height: 200
+                            background_color: 0, 1 , 1 , 1
+                            on_release: 
+                                dropdown.select('Third Item')
+                                input.text = "C"
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                fullscreen: True
+                __safe_id: [dropdown.__self__]     
+                            
+                Label:
+                    size_hint_y: None
+                    text: "Convert To:"
+                    font_size: 75
+                    height: 200
+                
+                Button:
+                    id: btn_two
+                    text: 'Input File 2'
+                    on_parent: dropdown_two.dismiss()
+                    on_release: dropdown_two.open(self)
+                    size_hint_y: None
+                    height: 200
+                    background_color: 0, 0 , 1 , 1
                     
-                DropDown:
-                    id: dropdown
-                    on_parent: self.dismiss()
-                    on_select: btn.text = "{}".format(args[1])
-                        
-                    Button:
-                        text: "Inches"
+                    Label:
+                        id: answer
                         size_hint_y: None
                         height: 200
-                        on_release: dropdown.select("Inches")
                         
-            BoxLayout:
-                cols: 2
-                id: steps
-                size_hint_y: None
-                height: self.minimum_height 
-                padding: 5,5  
+                    DropDown:
+                        id: dropdown_two
+                        on_select: btn_two.text = '{}'.format(args[1])
                 
-                Button:
-                    id: btn
-                    text: "Inches"
-                    font_size: 75
-                    size_hint_y: None
-                    height: 200
-                    background_color: 0, 1 , 0 , 1
-                    on_release:
-                        Length.inches(input.text)
-                                            
-                Button:
-                    id: btn
-                    text: "Feet"
-                    font_size: 75
-                    size_hint_y: None
-                    height: 200
-                    background_color: 0, 0 , 1 , 1
-                    on_release:
-                        Length.feet(input.text)
-
-            BoxLayout:
-                cols: 2
-                id: steps
-                size_hint_y: None
-                height: self.minimum_height 
-                padding: 5,5  
+                        Button:
+                            text: 'First Item'
+                            size_hint_y: None
+                            height: 200
+                            on_release: 
+                                dropdown_two.select('First Item')
                 
-                Button:
-                    id: btn
-                    text: "Yard"
-                    font_size: 75
-                    size_hint_y: None
-                    height: 200
-                    background_color: 0, 0 , 1 , 1
-                    on_release:
-                        Length.yard(input.text)
-                                            
-                Button:
-                    id: btn
-                    text: "Mile"
-                    font_size: 75
-                    size_hint_y: None
-                    height: 200
-                    background_color: 0, 1 , 0 , 1
-                    on_release:
-                        Length.mile(input.text)
-                    
+                        Button:
+                            text: '2nd Item'
+                            size_hint_y: None
+                            height: 200
+                            on_release: 
+                                dropdown_two.select('Third Item')
+                
+                        Button:
+                            text: 'Third Item'
+                            size_hint_y: None
+                            height: 200
+                            on_release: 
+                                dropdown_two.select('Third Item')
+                           
             GridLayout:
                 id: list_of_steps
                 cols: 1
