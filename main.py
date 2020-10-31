@@ -138,7 +138,6 @@ Builder.load_string("""
                             text: 'First Item'
                             size_hint_y: None
                             height: 200
-                            background_color: 0, 1 , 1 , 1
                             on_release: 
                                 dropdown.select('First Item')
                                 input.text = "A"
@@ -147,7 +146,6 @@ Builder.load_string("""
                             text: '2nd Item'
                             size_hint_y: None
                             height: 200
-                            background_color: 0, 1 , 1 , 1
                             on_release: 
                                 dropdown.select('Third Item')
                                 input.text = "B"                                
@@ -156,7 +154,6 @@ Builder.load_string("""
                             text: 'Third Item'
                             size_hint_y: None
                             height: 200
-                            background_color: 0, 1 , 1 , 1
                             on_release: 
                                 dropdown.select('Third Item')
                                 input.text = "C"
