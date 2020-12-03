@@ -46,39 +46,50 @@ Builder.load_string("""
 <List_of_Converters>:
     id: List_of_Converters
     name: "List_of_Converters"
-    GridLayout:
-        cols: 1
         
-        Button:
-            font_size: 75
-            size_hint_y: None
-            height: 200
-            text: "Fractions Converter"
-            on_release:
-                app.root.current = "Fractions_converter"
-                root.manager.transition.direction = "left" 
+    ScrollView:
+        name: "Scroll"
+        do_scroll_x: False
+        do_scroll_y: True
+    
+        GridLayout:
+            cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
+            
+            Button:
+                font_size: 75
+                size_hint_y: None
+                height: 400
+                text: "Fractions Converter"
+                on_release:
+                    app.root.current = "Fractions_converter"
+                    root.manager.transition.direction = "left" 
+            
+            Button:
+                font_size: 75
+                size_hint_y: None
+                height: 400
+                background_color: 0, 0 , 1 , 1
+                text: "Decimals converter"
+                on_release:
+                    app.root.current = "Decimals_converter"
+                    root.manager.transition.direction = "left" 
         
-        Button:
-            font_size: 75
-            size_hint_y: None
-            height: 200
-            text: "Decimals converter"
-            on_release:
-                app.root.current = "Decimals_converter"
-                root.manager.transition.direction = "left" 
-
-        Button:
-            font_size: 75
-            size_hint_y: None
-            height: 200
-            text: "Percentages converter"
-            on_release:
-                app.root.current = "Percentages_converter"
-                root.manager.transition.direction = "left" 
+            Button:
+                font_size: 75
+                size_hint_y: None
+                height: 400
+                text: "Percentages converter"
+                on_release:
+                    app.root.current = "Percentages_converter"
+                    root.manager.transition.direction = "left" 
 
 """)
 
-#Length 
 Builder.load_string("""
 <Percentages_converter>
     id: Percentages_converter
@@ -98,7 +109,7 @@ Builder.load_string("""
             height: self.minimum_height
             
             Label:
-                text: "Percentage Converter"   
+                text: "Percentages Converter"   
                 font_size: 75
                 size_hint_y: None
                 height: 200
@@ -199,6 +210,248 @@ Builder.load_string("""
                 height: self.minimum_height                  
 """)
 
+Builder.load_string("""
+<Fractions_converter>
+    id: Fractions_converter
+    name:"Fractions_converter"
+
+    ScrollView:
+        name: "Scroll"
+        do_scroll_x: False
+        do_scroll_y: True
+        
+        GridLayout:
+            cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
+            
+            Label:
+                text: "Fractions Converter"   
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                    
+            BoxLayout:
+                cols: 2
+                padding:10
+                spacing:10
+                size_hint: 1, None
+                width:300
+                size_hint_y: None
+                height: self.minimum_height 
+                
+                Button:
+                    text: "Clear Entry"   
+                    font_size: 75
+                    size_hint_y: None
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        input.text = ""
+                        
+                Button:
+                    id: steps
+                    text: "Clear All"   
+                    font_size: 75
+                    size_hint_y: None
+                    background_color: 1, 0 , 0 , 1
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        list_of_steps.clear_widgets()  
+                        input.text = ""
+                    
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                
+                TextInput:
+                    id: input
+                    text: input.text
+                    multiline: False
+                    font_size: 125
+                    size_hint_y: None
+                    height: 200
+                    padding: 10
+                    input_filter: lambda text, from_undo: text[:4 - len(input.text)] 
+                    
+                Label:
+                    font_size: 75
+                    text: "%"
+                    size: self.texture_size
+                                
+            Label:
+                size_hint_y: None
+                height: 200
+                text: "Convert To:"
+                font_size: 75
+                
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                         
+                Button:
+                    text: "Fraction"   
+                    font_size: 75
+                    size_hint_y: None
+                    height: 200
+                    padding: 10, 10
+                    background_color: 0, 0 , 1 , 1
+                    on_release:
+                        list_of_steps.clear_widgets() 
+                        Percentages_converter.convert_perc_to_frac(input.text)
+                        
+                Button:
+                    id: steps
+                    text: "Decimal"   
+                    font_size: 75
+                    size_hint_y: None
+                    background_color: 0, 0 , 1 , 1
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        list_of_steps.clear_widgets() 
+                        Percentages_converter.convert_perc_to_dec(input.text)
+                    
+            GridLayout:
+                id: list_of_steps
+                cols: 1
+                size_hint: 1, None
+                height: self.minimum_height            
+    
+""")
+
+Builder.load_string("""
+<Decimals_converter>
+    id: Decimals_converter
+    name:"Decimals_converter"
+
+    ScrollView:
+        name: "Scroll"
+        do_scroll_x: False
+        do_scroll_y: True
+        
+        GridLayout:
+            cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
+            
+            Label:
+                text: "Decimals Converter"   
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                    
+            BoxLayout:
+                cols: 2
+                padding:10
+                spacing:10
+                size_hint: 1, None
+                width:300
+                size_hint_y: None
+                height: self.minimum_height 
+                
+                Button:
+                    text: "Clear Entry"   
+                    font_size: 75
+                    size_hint_y: None
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        input.text = ""
+                        
+                Button:
+                    id: steps
+                    text: "Clear All"   
+                    font_size: 75
+                    size_hint_y: None
+                    background_color: 1, 0 , 0 , 1
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        list_of_steps.clear_widgets()  
+                        input.text = ""
+                    
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                
+                TextInput:
+                    id: input
+                    text: input.text
+                    multiline: False
+                    font_size: 125
+                    size_hint_y: None
+                    height: 200
+                    padding: 10
+                    input_filter: lambda text, from_undo: text[:4 - len(input.text)] 
+                    
+                Label:
+                    font_size: 75
+                    text: "%"
+                    size: self.texture_size
+                                
+            Label:
+                size_hint_y: None
+                height: 200
+                text: "Convert To:"
+                font_size: 75
+                
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                         
+                Button:
+                    text: "Fraction"   
+                    font_size: 75
+                    size_hint_y: None
+                    height: 200
+                    padding: 10, 10
+                    background_color: 0, 0 , 1 , 1
+                    on_release:
+                        list_of_steps.clear_widgets() 
+                        Percentages_converter.convert_perc_to_frac(input.text)
+                        
+                Button:
+                    id: steps
+                    text: "Decimal"   
+                    font_size: 75
+                    size_hint_y: None
+                    background_color: 0, 0 , 1 , 1
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        list_of_steps.clear_widgets() 
+                        Percentages_converter.convert_perc_to_dec(input.text)
+                    
+            GridLayout:
+                id: list_of_steps
+                cols: 1
+                size_hint: 1, None
+                height: self.minimum_height            
+    
+""")
+
 class Homepage(Screen):
     pass
 
@@ -217,7 +470,7 @@ class List_of_Converters(Screen):
     def set_previous_screen(self):
         if sm.current != "Homepage":
             sm.transition.direction = 'right'
-            sm.current = sm.previous()  
+            sm.current = "Homepage"  
 
 class Decimals_converter(Screen):
     sm = ScreenManager()
@@ -234,10 +487,10 @@ class Decimals_converter(Screen):
     def set_previous_screen(self):
         if sm.current != "Homepage":
             sm.transition.direction = 'right'
-            sm.current = sm.previous()  
+            sm.current = "List_of_Converters"  
 
     layouts = []
-    def convert_perc_to_frac(self,entry):
+    def convert_dec_to_frac(self,entry):
         print("entry ",entry)
         layout = GridLayout(cols=1,size_hint_y= None)
         try:
@@ -246,6 +499,16 @@ class Decimals_converter(Screen):
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
+            
+    def convert_dec_to_perc(self,entry):
+        print("entry ",entry)
+        layout = GridLayout(cols=1,size_hint_y= None)
+        try:
+            self.ids.list_of_steps.add_widget(Label(text="Passed", font_size = 50, size_hint_y= None, height=100))
+            self.layouts.append(layout)
+        except Exception:
+            self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
+            self.layouts.append(layout)      
             
 class Fractions_converter(Screen):
     sm = ScreenManager()
@@ -262,7 +525,7 @@ class Fractions_converter(Screen):
     def set_previous_screen(self):
         if sm.current != "Homepage":
             sm.transition.direction = 'right'
-            sm.current = sm.previous()     
+            sm.current = "List_of_Converters"     
 
     layouts = []
     def convert(self,entry):
@@ -274,6 +537,7 @@ class Fractions_converter(Screen):
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
+            
 class Percentages_converter(Screen):
     sm = ScreenManager()
 
@@ -289,7 +553,7 @@ class Percentages_converter(Screen):
     def set_previous_screen(self):
         if sm.current != "Homepage":
             sm.transition.direction = 'right'
-            sm.current = sm.previous()
+            sm.current = "List_of_Converters"
             
     layouts = []
     def convert_perc_to_frac(self,entry):
@@ -414,8 +678,8 @@ class Percentages_converter(Screen):
                 if str(numerator)[0] == "0":
                     numerator = str(numerator)[1]
                     
-                self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = 50, size_hint_y= None, height=100))
-                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") + "\u2044" + str(denomenator).replace(".0",""), font_size = 50, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") + "\u2044" + str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)  
                 
                     
