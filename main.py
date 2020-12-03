@@ -105,7 +105,15 @@ Builder.load_string("""
                 width:300
                 size_hint_y: None
                 height: self.minimum_height 
-
+                
+                Label:
+                    text: "Percentage Converter"   
+                    font_size: 75
+                    size_hint_y: None
+                    height: 200
+                    padding: 10, 10
+                    
+                
                 Button:
                     text: "Clear Entry"   
                     font_size: 75
@@ -351,8 +359,8 @@ class Percentages_converter(Screen):
                 
                 if fraction == "100/100":
                     fraction = "1"
-                
-                self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = " + str(whole).replace(".0","") + fraction + ")", font_size = 50, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text=entry + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text=  str(whole).replace(".0","") + fraction + ")", font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)     
                     
             if len(entry) <= 2:
@@ -407,7 +415,8 @@ class Percentages_converter(Screen):
                 if str(numerator)[0] == "0":
                     numerator = str(numerator)[1]
                     
-                self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = " + str(numerator).replace(".0","") + "\u2044" + str(denomenator).replace(".0",""), font_size = 50, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = 50, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") + "\u2044" + str(denomenator).replace(".0",""), font_size = 50, size_hint_y= None, height=100))
                 self.layouts.append(layout)  
                 
                     
@@ -422,7 +431,8 @@ class Percentages_converter(Screen):
             dec = entry + "/100"
             evaled = str(eval(dec))
             print("evaled",evaled)
-            self.ids.list_of_steps.add_widget(Label(text= entry + "% to Decimal = " + evaled, font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= entry + "% to Decimal = ", font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= evaled, font_size = 75, size_hint_y= None, height=100))
             self.layouts.append(layout)
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 50, size_hint_y= None, height=100))   
@@ -443,5 +453,4 @@ class FDP_Converter(App):
 if __name__ == '__main__':
     FDP_Converter().run()
     
-
 
