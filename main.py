@@ -272,21 +272,65 @@ Builder.load_string("""
                 height: self.minimum_height 
                 padding: 5,5         
                 
+                Label:
+                    font_size: 75
+                    text: "Whole"
+                    size: self.texture_size
+                
                 TextInput:
-                    id: input
-                    text: input.text
+                    id: Whole
+                    text: Whole.text
                     multiline: False
                     font_size: 125
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:4 - len(input.text)] 
-                    
+                    input_filter: lambda text, from_undo: text[:4 - len(Whole.text)] 
+            
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                
                 Label:
                     font_size: 75
-                    text: "%"
+                    text: "Numerator"
                     size: self.texture_size
-                                
+                
+                TextInput:
+                    id: Numerator
+                    text: Numerator.text
+                    multiline: False
+                    font_size: 125
+                    size_hint_y: None
+                    height: 200
+                    padding: 10
+                    input_filter: lambda text, from_undo: text[:4 - len(Numerator.text)] 
+                    
+            BoxLayout:
+                cols: 2
+                id: steps
+                size_hint_y: None
+                height: self.minimum_height 
+                padding: 5,5         
+                
+                Label:
+                    font_size: 75
+                    text: "Denomenator"
+                    size: self.texture_size
+                
+                TextInput:
+                    id: Denomenator
+                    text: Denomenator.text
+                    multiline: False
+                    font_size: 125
+                    size_hint_y: None
+                    height: 200
+                    padding: 10
+                    input_filter: lambda text, from_undo: text[:4 - len(Denomenator.text)] 
+                    
             Label:
                 size_hint_y: None
                 height: 200
@@ -301,7 +345,7 @@ Builder.load_string("""
                 padding: 5,5         
                          
                 Button:
-                    text: "Fraction"   
+                    text: "Percent"   
                     font_size: 75
                     size_hint_y: None
                     height: 200
@@ -309,7 +353,7 @@ Builder.load_string("""
                     background_color: 0, 0 , 1 , 1
                     on_release:
                         list_of_steps.clear_widgets() 
-                        Percentages_converter.convert_perc_to_frac(input.text)
+                        Fractions_converter.convert_frac_to_perc(Whole.text + "(" + Numerator.text + "/" + Denomenator.text + ")")
                         
                 Button:
                     id: steps
@@ -321,7 +365,7 @@ Builder.load_string("""
                     padding: 10, 10
                     on_release:
                         list_of_steps.clear_widgets() 
-                        Percentages_converter.convert_perc_to_dec(input.text)
+                        Fractions_converter.convert_frac_to_dec(Whole.text + "(" + Numerator.text + "/" + Denomenator.text + ")")
                     
             GridLayout:
                 id: list_of_steps
@@ -528,15 +572,25 @@ class Fractions_converter(Screen):
             sm.current = "List_of_Converters"     
 
     layouts = []
-    def convert(self,entry):
+    def convert_frac_to_perc(self,entry):
         print("entry ",entry)
         layout = GridLayout(cols=1,size_hint_y= None)
         try:
-            self.ids.list_of_steps.add_widget(Label(text="Passed", font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Passed " + entry, font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
+            
+    def convert_frac_to_dec(self,entry):
+        print("entry ",entry)
+        layout = GridLayout(cols=1,size_hint_y= None)
+        try:
+            self.ids.list_of_steps.add_widget(Label(text="Passed " + entry, font_size = 50, size_hint_y= None, height=100))
+            self.layouts.append(layout)
+        except Exception:
+            self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
+            self.layouts.append(layout)  
             
 class Percentages_converter(Screen):
     sm = ScreenManager()
@@ -620,7 +674,11 @@ class Percentages_converter(Screen):
                 
                 self.ids.list_of_steps.add_widget(Label(text= str(entry) + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
                 self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " -----   ", font_size = 75, size_hint_y= None, height=100))
+                if len(whole) == 1:
+                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " -----  ", font_size = 75, size_hint_y= None, height=100))
+                else:
+                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " -----    ", font_size = 75, size_hint_y= None, height=100))
+                    
                 self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)     
                 
