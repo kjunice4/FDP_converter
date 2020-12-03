@@ -63,7 +63,7 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 400
+                height: 600
                 text: "Fractions Converter"
                 on_release:
                     app.root.current = "Fractions_converter"
@@ -72,7 +72,7 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 400
+                height: 600
                 background_color: 0, 0 , 1 , 1
                 text: "Decimals converter"
                 on_release:
@@ -82,7 +82,7 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 400
+                height: 600
                 text: "Percentages converter"
                 on_release:
                     app.root.current = "Percentages_converter"
@@ -470,7 +470,7 @@ class List_of_Converters(Screen):
     def set_previous_screen(self):
         if sm.current != "Homepage":
             sm.transition.direction = 'right'
-            sm.current = "Homepage"  
+            sm.current = sm.previous()  
 
 class Decimals_converter(Screen):
     sm = ScreenManager()
@@ -679,7 +679,9 @@ class Percentages_converter(Screen):
                     numerator = str(numerator)[1]
                     
                 self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
-                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") + "\u2044" + str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= "----", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)  
                 
                     
