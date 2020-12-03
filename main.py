@@ -97,6 +97,13 @@ Builder.load_string("""
             width:200
             height: self.minimum_height
             
+            Label:
+                text: "Percentage Converter"   
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                    
             BoxLayout:
                 cols: 2
                 padding:10
@@ -105,14 +112,6 @@ Builder.load_string("""
                 width:300
                 size_hint_y: None
                 height: self.minimum_height 
-                
-                Label:
-                    text: "Percentage Converter"   
-                    font_size: 75
-                    size_hint_y: None
-                    height: 200
-                    padding: 10, 10
-                    
                 
                 Button:
                     text: "Clear Entry"   
