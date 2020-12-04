@@ -449,13 +449,7 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:4 - len(input.text)] 
-                    
-                Label:
-                    font_size: 75
-                    text: "%"
-                    size: self.texture_size
-                                
+                    input_filter: lambda text, from_undo: text[:8 - len(input.text)] 
             Label:
                 size_hint_y: None
                 height: 200
@@ -478,11 +472,11 @@ Builder.load_string("""
                     background_color: 0, 0 , 1 , 1
                     on_release:
                         list_of_steps.clear_widgets() 
-                        Percentages_converter.convert_perc_to_frac(input.text)
+                        Decimals_converter.convert_dec_to_frac(input.text)
                         
                 Button:
                     id: steps
-                    text: "Decimal"   
+                    text: "Percent"   
                     font_size: 75
                     size_hint_y: None
                     background_color: 0, 0 , 1 , 1
@@ -490,7 +484,7 @@ Builder.load_string("""
                     padding: 10, 10
                     on_release:
                         list_of_steps.clear_widgets() 
-                        Percentages_converter.convert_perc_to_dec(input.text)
+                        Decimals_converter.convert_dec_to_perc(input.text)
                     
             GridLayout:
                 id: list_of_steps
@@ -542,20 +536,90 @@ class Decimals_converter(Screen):
         print("entry ",entry)
         layout = GridLayout(cols=1,size_hint_y= None)
         try:
-            self.ids.list_of_steps.add_widget(Label(text="Passed", font_size = 50, size_hint_y= None, height=100))
-            self.layouts.append(layout)
+            if entry.count(".") == 1:
+                decimal_index = entry.find(".")
+                whole = str(entry[:decimal_index])
+                print("whole",whole)
+                dec_for_frac = entry[decimal_index+1:]
+                print("dec_for_frac",dec_for_frac)
+                numerator = dec_for_frac[:2]
+                print("numerator",numerator)
+                
+                denomenator = 100
+                if int(numerator) % 50 == 0:
+                    while int(numerator) > 1:
+                        numerator = int(numerator) / 50
+                        denomenator = int(denomenator) / 50
+                        print("numerator 50 ",numerator)
+                        print("denomenator 50 ",denomenator)
+                        if numerator % 50 != 0 or denomenator % 50 != 0:
+                            break
+                    
+                if int(numerator) % 25 == 0:
+                    while int(numerator) > 1:
+                        numerator = int(numerator) / 25
+                        denomenator = int(denomenator) / 25
+                        print("numerator 25 ",numerator)
+                        print("denomenator 25 ",denomenator)
+                        if numerator % 25 != 0 or denomenator % 25 != 0:
+                            break
+                
+                if int(numerator) % 10 == 0:
+                    while int(numerator) > 1:
+                        numerator = int(numerator) / 10
+                        denomenator = int(denomenator) / 10
+                        print("numerator 10 ",numerator)
+                        print("denomenator 10 ",denomenator)
+                        if numerator % 10 != 0 or denomenator % 10 != 0:
+                            break
+                
+                if int(numerator) % 5 == 0:
+                    while int(numerator) > 1:
+                        numerator = int(numerator) / 5
+                        denomenator = int(denomenator) / 5
+                        print("numerator 5 ",numerator)
+                        print("denomenator 5 ",denomenator)
+                        if numerator % 5 != 0 or denomenator % 5 != 0:
+                            break
+                            
+                if int(numerator) % 2 == 0:
+                    while int(numerator) > 1:
+                        numerator = int(numerator) / 2
+                        denomenator = int(denomenator) / 2
+                        print("numerator 2 ",numerator)
+                        print("denomenator 2 ",denomenator)
+                        if numerator % 2 != 0 or denomenator % 2 != 0:
+                            break
+                        
+                if str(numerator)[0] == "0":
+                    numerator = str(numerator)[1]
+                    
+                self.ids.list_of_steps.add_widget(Label(text= str(entry) + " to Fraction = ", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(str(denomenator)) + "  ", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout) 
+            else:
+                self.ids.list_of_steps.add_widget(Label(text="Enter a decimal number", font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout) 
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
             self.layouts.append(layout)
             
     def convert_dec_to_perc(self,entry):
         print("entry ",entry)
         layout = GridLayout(cols=1,size_hint_y= None)
         try:
-            self.ids.list_of_steps.add_widget(Label(text="Passed", font_size = 50, size_hint_y= None, height=100))
-            self.layouts.append(layout)
+            if entry.count(".") == 1:
+                percent = str(float(entry)*100) + "%"
+                print("percent ",percent)
+                self.ids.list_of_steps.add_widget(Label(text=percent, font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)
+            else:
+                self.ids.list_of_steps.add_widget(Label(text="Enter a decimal number", font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout) 
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Failed", font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
             self.layouts.append(layout)      
             
 class Fractions_converter(Screen):
