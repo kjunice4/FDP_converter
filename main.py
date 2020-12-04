@@ -589,22 +589,21 @@ class Fractions_converter(Screen):
             right_par_index = entry.find(")")
             denomenator = entry[frac_sign+1:right_par_index]
             print("denomenator",denomenator)
-            if int(whole) > 0 or int(whole) < 0 or str(whole).strip() == "":
-                if int(numerator) < int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= " to Percentage = ", font_size = 75, size_hint_y= None, height=100))
-                    self.layouts.append(layout)
-                    
-                    last_digits = str(100 / int(denomenator) * int(numerator))
-                    print("last_digits",last_digits)
-                    if last_digits[-2:] == '.0':
-                        last_digits = last_digits[:-2]
-                    percentage = str(str(whole) + str(last_digits)) + "%"
-                    print("percentage",percentage)
-                    self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
-                    self.layouts.append(layout)
+            if int(numerator) < int(denomenator):
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= " to Percentage = ", font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)
+                
+                last_digits = str(100 / int(denomenator) * int(numerator))
+                print("last_digits",last_digits)
+                if last_digits[-2:] == '.0':
+                    last_digits = last_digits[:-2]
+                percentage = str(str(whole) + str(last_digits)) + "%"
+                print("percentage",percentage)
+                self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)
                 
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
@@ -623,22 +622,24 @@ class Fractions_converter(Screen):
             right_par_index = entry.find(")")
             denomenator = entry[frac_sign+1:right_par_index]
             print("denomenator",denomenator)
-            if int(whole) > 0 or int(whole) < 0 or str(whole).strip() == "":
-                if int(numerator) < int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= " to Decimal = ", font_size = 75, size_hint_y= None, height=100))
-                    self.layouts.append(layout)
-                    
-                    last_digits = str(100 / int(denomenator) * int(numerator))
-                    print("last_digits",last_digits)
-                    if last_digits[-2:] == '.0':
-                        last_digits = last_digits[:-2]
-                    decimal = str(str(whole) + "." + str(last_digits))
-                    print("decimal",decimal)
-                    self.ids.list_of_steps.add_widget(Label(text= decimal, font_size = 75, size_hint_y= None, height=100))
-                    self.layouts.append(layout)
+            if int(numerator) < int(denomenator):
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(whole)+ " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(denomenator), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= " to Decimal = ", font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)
+                
+                last_digits = str(100 / int(denomenator) * int(numerator))
+                print("last_digits",last_digits)
+                if last_digits[-2:] == '.0':
+                    last_digits = last_digits[:-2]
+                decimal = str(str(whole) + "." + str(last_digits))
+                print("decimal",decimal)
+                if decimal.count(".") > 1:
+                    index = decimal.find(".")
+                    decimal = decimal[:index] + decimal[index+1:]
+                self.ids.list_of_steps.add_widget(Label(text= decimal, font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)
                     
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
