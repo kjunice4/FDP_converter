@@ -289,7 +289,7 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:4 - len(Whole.text)] 
+                    input_filter: lambda text, from_undo: text[:3 - len(Whole.text)] 
             
             BoxLayout:
                 cols: 2
@@ -311,7 +311,7 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:4 - len(Numerator.text)] 
+                    input_filter: lambda text, from_undo: text[:3 - len(Numerator.text)] 
                     
             BoxLayout:
                 cols: 2
@@ -333,7 +333,7 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:4 - len(Denomenator.text)] 
+                    input_filter: lambda text, from_undo: text[:3 - len(Denomenator.text)] 
                     
             Label:
                 size_hint_y: None
@@ -597,9 +597,11 @@ class Fractions_converter(Screen):
                     self.ids.list_of_steps.add_widget(Label(text= " to Percentage = ", font_size = 75, size_hint_y= None, height=100))
                     self.layouts.append(layout)
                     
-                    last_two_digits = str(100 / int(denomenator) * int(numerator))[:2]
-                    print("last_two_digits",last_two_digits)
-                    percentage = str(str(whole) + str(last_two_digits)) + "%"
+                    last_digits = str(100 / int(denomenator) * int(numerator))
+                    print("last_digits",last_digits)
+                    if last_digits[-2:] == '.0':
+                        last_digits = last_digits[:-2]
+                    percentage = str(str(whole) + str(last_digits)) + "%"
                     print("percentage",percentage)
                     self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
                     self.layouts.append(layout)
@@ -629,12 +631,15 @@ class Fractions_converter(Screen):
                     self.ids.list_of_steps.add_widget(Label(text= " to Decimal = ", font_size = 75, size_hint_y= None, height=100))
                     self.layouts.append(layout)
                     
-                    last_two_digits = str(100 / int(denomenator) * int(numerator))[:2]
-                    print("last_two_digits",last_two_digits)
-                    decimal = str(str(whole) + "." + str(last_two_digits))
+                    last_digits = str(100 / int(denomenator) * int(numerator))
+                    print("last_digits",last_digits)
+                    if last_digits[-2:] == '.0':
+                        last_digits = last_digits[:-2]
+                    decimal = str(str(whole) + "." + str(last_digits))
                     print("decimal",decimal)
                     self.ids.list_of_steps.add_widget(Label(text= decimal, font_size = 75, size_hint_y= None, height=100))
                     self.layouts.append(layout)
+                    
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
             self.layouts.append(layout)  
