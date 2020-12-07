@@ -696,11 +696,12 @@ class Fractions_converter(Screen):
                 self.ids.list_of_steps.add_widget(Label(text= " to Decimal = ", font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)
                 
-                last_digits = str(100 / int(denomenator) * int(numerator))
+                last_digits = str(int(numerator) / int(denomenator))
                 print("last_digits",last_digits)
-                if last_digits[-2:] == '.0':
-                    last_digits = last_digits[:-2]
-                decimal = str(str(whole) + "." + str(last_digits))
+                if str(whole) == "":
+                    decimal = last_digits
+                else:
+                    decimal = str(float(whole) + float(last_digits))
                 print("decimal",decimal)
                 if decimal.count(".") > 1:
                     index = decimal.find(".")
