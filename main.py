@@ -664,14 +664,18 @@ class Fractions_converter(Screen):
                 self.ids.list_of_steps.add_widget(Label(text= " to Percentage = ", font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)
                 
-                last_digits = str(100 / int(denomenator) * int(numerator))
+                last_digits = str(int(numerator) / int(denomenator))
                 print("last_digits",last_digits)
-                if last_digits[-2:] == '.0':
-                    last_digits = last_digits[:-2]
-                percentage = str(str(whole) + str(last_digits)) + "%"
-                print("percentage",percentage)
-                self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
-                self.layouts.append(layout)
+                if str(whole) != "":
+                    percentage = str((float(whole) + float(last_digits)) * 100) + "%"
+                    print("percentage",percentage)
+                    self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
+                    self.layouts.append(layout)
+                else:
+                    percentage = str((float(last_digits)) * 100) + "%"
+                    print("percentage",percentage)
+                    self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
+                    self.layouts.append(layout)
                 
             elif int(numerator) == int(denomenator) or str(numerator) == str(denomenator):
                 whole = str(int(whole) * 100) + "%"
