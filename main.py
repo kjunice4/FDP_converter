@@ -592,7 +592,8 @@ class Decimals_converter(Screen):
                             break
                         
                 if str(numerator)[0] == "0":
-                    numerator = str(numerator)[1]
+                    numerator = ""
+                    denomenator = ""
                     
                 self.ids.list_of_steps.add_widget(Label(text= str(entry) + " to Fraction = ", font_size = 75, size_hint_y= None, height=100))
                 self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
@@ -668,7 +669,9 @@ class Fractions_converter(Screen):
                 print("percentage",percentage)
                 self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)
-                
+            else:
+                self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)    
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
             self.layouts.append(layout)
@@ -704,7 +707,9 @@ class Fractions_converter(Screen):
                     decimal = decimal[:index] + decimal[index+1:]
                 self.ids.list_of_steps.add_widget(Label(text= decimal, font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)
-                    
+            else:
+              self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 75, size_hint_y= None, height=100))
+              self.layouts.append(layout)      
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
             self.layouts.append(layout)  
