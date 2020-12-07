@@ -654,6 +654,9 @@ class Fractions_converter(Screen):
             right_par_index = entry.find(")")
             denomenator = entry[frac_sign+1:right_par_index]
             print("denomenator",denomenator)
+            if numerator == "" and denomenator == "":
+                numerator = 1
+                denomenator = 1
             if int(numerator) < int(denomenator):
                 self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
                 self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
@@ -669,8 +672,14 @@ class Fractions_converter(Screen):
                 print("percentage",percentage)
                 self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)
+                
+            elif int(numerator) == int(denomenator) or str(numerator) == str(denomenator):
+                whole = str(int(whole) * 100) + "%"
+                print("whole",whole)
+                self.ids.list_of_steps.add_widget(Label(text= whole, font_size = 75, size_hint_y= None, height=100))
+                self.layouts.append(layout)
             else:
-                self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 60, size_hint_y= None, height=100))
                 self.layouts.append(layout)    
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
