@@ -542,6 +542,8 @@ class Decimals_converter(Screen):
                 print("whole",whole)
                 dec_for_frac = entry[decimal_index+1:]
                 print("dec_for_frac",dec_for_frac)
+                if len(dec_for_frac) == 1:
+                    dec_for_frac = dec_for_frac + "0"
                 numerator = dec_for_frac[:2]
                 print("numerator",numerator)
                 
