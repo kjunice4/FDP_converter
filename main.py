@@ -38,7 +38,6 @@ Builder.load_string("""
             on_release:
                 app.root.current = "List_of_Converters"
                 root.manager.transition.direction = "left" 
-
 """)
 
 #List of converters
@@ -87,7 +86,6 @@ Builder.load_string("""
                 on_release:
                     app.root.current = "Percentages_converter"
                     root.manager.transition.direction = "left" 
-
 """)
 
 Builder.load_string("""
@@ -214,7 +212,6 @@ Builder.load_string("""
 <Fractions_converter>
     id: Fractions_converter
     name:"Fractions_converter"
-
     ScrollView:
         name: "Scroll"
         do_scroll_x: False
@@ -383,7 +380,6 @@ Builder.load_string("""
 <Decimals_converter>
     id: Decimals_converter
     name:"Decimals_converter"
-
     ScrollView:
         name: "Scroll"
         do_scroll_x: False
@@ -538,8 +534,10 @@ class Decimals_converter(Screen):
         try:
             if entry.count(".") == 1:
                 decimal_index = entry.find(".")
+                print("decimal_index",decimal_index)
                 whole = str(entry[:decimal_index])
-                if int(whole) == 0:
+                print("whole",whole)
+                if whole == "0":
                     whole = ""
                 print("whole",whole)
                 dec_for_frac = entry[decimal_index+1:]
@@ -949,4 +947,3 @@ class FDP_Converter(App):
 if __name__ == '__main__':
     FDP_Converter().run()
     
-
