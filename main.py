@@ -16,17 +16,7 @@ Builder.load_string("""
         Button:
             background_normal: "KSquared_Logo.png"
             on_release:
-                app.root.current = "List_of_Converters"
-                root.manager.transition.direction = "left" 
-        
-        Button:
-            font_size: 50
-            background_color: 0, 0 , 0 , 1
-            size_hint_y: None
-            height: 50
-            text: "KSquared"
-            on_release:
-                app.root.current = "List_of_Converters"
+                app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
         
         Button:
@@ -36,8 +26,75 @@ Builder.load_string("""
             height: 200
             text: "Fractions, Decimals, and Percentage Converters"
             on_release:
-                app.root.current = "List_of_Converters"
+                app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
+""")
+
+Builder.load_string("""
+<Menu>:
+    id: Menu
+    name: "Menu"
+        
+    ScrollView:
+        name: "Scroll"
+        do_scroll_x: False
+        do_scroll_y: True
+    
+        GridLayout:
+            cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
+            
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "Menu"
+            
+            Button:
+                text: "Fractions, Decimals, Percentages Converters"  
+                font_size: 60
+                background_color: 0, 0 , 1 , 1
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                on_release:
+                    app.root.current = "List_of_Converters"
+                    root.manager.transition.direction = "left" 
+                    
+            Button:
+                font_size: 75
+                background_color: 0, 0 , 0 , 1
+                size_hint_y: None
+                height: 400
+                text: "Visit KSquared,LLC"
+                on_release:
+                    import webbrowser
+                    webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc')
+            Button:
+                font_size: 75
+                background_color: 0, 0 , 0 , 1
+                size_hint_y: None
+                height: 400
+                text: "Other apps from KSquared,LLC"
+                on_release:
+                    import webbrowser
+                    webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc/subscribe')   
+                
+            Button:
+                font_size: 75
+                background_color: 0, 0 , 0 , 1
+                size_hint_y: None
+                height: 400
+                text: "Donate to KSquared,LLC"
+                on_release:
+                    import webbrowser
+                    webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc/about-ksquared')
+            
 """)
 
 #List of converters
@@ -62,7 +119,8 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 600
+                height: 300
+                background_color: 0, 0 , 0 , 1
                 text: "Fractions Converter"
                 on_release:
                     app.root.current = "Fractions_converter"
@@ -71,8 +129,8 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 600
-                background_color: 0, 0 , 1 , 1
+                height: 300
+                background_color: 0, 0 , 0 , 1
                 text: "Decimals converter"
                 on_release:
                     app.root.current = "Decimals_converter"
@@ -81,11 +139,22 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 600
+                height: 300
+                background_color: 0, 0 , 0 , 1
                 text: "Percentages converter"
                 on_release:
                     app.root.current = "Percentages_converter"
                     root.manager.transition.direction = "left" 
+                    
+            Button:
+                font_size: 75
+                size_hint_y: None
+                height: 300
+                background_color: 0, 0 , 1 , 1
+                text: "Back to Menu"
+                on_release:
+                    app.root.current = "Menu"
+                    root.manager.transition.direction = "right" 
 """)
 
 Builder.load_string("""
@@ -123,13 +192,14 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    text: "Clear Entry"   
                     font_size: 75
                     size_hint_y: None
                     height: 200
-                    padding: 10, 10
+                    background_color: 0, 0 , 1 , 1
+                    text: "Back"
                     on_release:
-                        input.text = ""
+                        app.root.current = "List_of_Converters"
+                        root.manager.transition.direction = "right" 
                         
                 Button:
                     id: steps
@@ -153,6 +223,7 @@ Builder.load_string("""
                 TextInput:
                     id: input
                     text: input.text
+                    hint_text: "Percentage:"
                     multiline: False
                     font_size: 125
                     size_hint_y: None
@@ -160,11 +231,6 @@ Builder.load_string("""
                     padding: 10
                     input_filter: lambda text, from_undo: text[:4 - len(input.text)] 
                     
-                Label:
-                    font_size: 75
-                    text: "%"
-                    size: self.texture_size
-                                
             Label:
                 size_hint_y: None
                 height: 200
@@ -242,15 +308,14 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    text: "Clear Entry"   
                     font_size: 75
                     size_hint_y: None
                     height: 200
-                    padding: 10, 10
+                    background_color: 0, 0 , 1 , 1
+                    text: "Back"
                     on_release:
-                        Whole.text = ""
-                        Numerator.text = ""
-                        Denomenator.text = ""
+                        app.root.current = "List_of_Converters"
+                        root.manager.transition.direction = "right" 
                         
                 Button:
                     id: steps
@@ -273,20 +338,16 @@ Builder.load_string("""
                 height: self.minimum_height 
                 padding: 5,5         
                 
-                Label:
-                    font_size: 75
-                    text: "Whole"
-                    size: self.texture_size
-                
                 TextInput:
                     id: Whole
                     text: Whole.text
+                    hint_text: "Whole:"
                     multiline: False
                     font_size: 125
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:3 - len(Whole.text)] 
+                    input_filter: lambda text, from_undo: text[:8 - len(Whole.text)] 
             
             BoxLayout:
                 cols: 2
@@ -295,20 +356,16 @@ Builder.load_string("""
                 height: self.minimum_height 
                 padding: 5,5         
                 
-                Label:
-                    font_size: 75
-                    text: "Numerator"
-                    size: self.texture_size
-                
                 TextInput:
                     id: Numerator
                     text: Numerator.text
+                    hint_text: "Numerator"
                     multiline: False
                     font_size: 125
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:3 - len(Numerator.text)] 
+                    input_filter: lambda text, from_undo: text[:8 - len(Numerator.text)] 
                     
             BoxLayout:
                 cols: 2
@@ -317,20 +374,16 @@ Builder.load_string("""
                 height: self.minimum_height 
                 padding: 5,5         
                 
-                Label:
-                    font_size: 75
-                    text: "Denomenator"
-                    size: self.texture_size
-                
                 TextInput:
                     id: Denomenator
                     text: Denomenator.text
+                    hint_text: "Denomenator"
                     multiline: False
                     font_size: 125
                     size_hint_y: None
                     height: 200
                     padding: 10
-                    input_filter: lambda text, from_undo: text[:3 - len(Denomenator.text)] 
+                    input_filter: lambda text, from_undo: text[:8 - len(Denomenator.text)] 
                     
             Label:
                 size_hint_y: None
@@ -410,13 +463,14 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    text: "Clear Entry"   
                     font_size: 75
                     size_hint_y: None
                     height: 200
-                    padding: 10, 10
+                    background_color: 0, 0 , 1 , 1
+                    text: "Back"
                     on_release:
-                        input.text = ""
+                        app.root.current = "List_of_Converters"
+                        root.manager.transition.direction = "right" 
                         
                 Button:
                     id: steps
@@ -440,12 +494,14 @@ Builder.load_string("""
                 TextInput:
                     id: input
                     text: input.text
+                    hint_text: "Decimal:"
                     multiline: False
                     font_size: 125
                     size_hint_y: None
                     height: 200
                     padding: 10
                     input_filter: lambda text, from_undo: text[:8 - len(input.text)] 
+                    
             Label:
                 size_hint_y: None
                 height: 200
@@ -493,40 +549,14 @@ Builder.load_string("""
 class Homepage(Screen):
     pass
 
+class Menu(Screen):
+    pass
+
 class List_of_Converters(Screen):
-    sm = ScreenManager()
-
-    def __init__(self, **kwargs):
-        super(List_of_Converters, self).__init__(**kwargs)
-        Window.bind(on_keyboard=self._key_handler)
-
-    def _key_handler(self, instance, key, *args):
-        if key == 27:
-            self.set_previous_screen()
-            return True
-
-    def set_previous_screen(self):
-        if sm.current != "Homepage":
-            sm.transition.direction = 'right'
-            sm.current = sm.previous()  
+    pass
 
 class Decimals_converter(Screen):
-    sm = ScreenManager()
-
-    def __init__(self, **kwargs):
-        super(Decimals_converter, self).__init__(**kwargs)
-        Window.bind(on_keyboard=self._key_handler)
-
-    def _key_handler(self, instance, key, *args):
-        if key == 27:
-            self.set_previous_screen()
-            return True
-
-    def set_previous_screen(self):
-        if sm.current != "Homepage":
-            sm.transition.direction = 'right'
-            sm.current = "List_of_Converters"  
-
+            
     layouts = []
     def convert_dec_to_frac(self,entry):
         print("entry ",entry)
@@ -631,22 +661,7 @@ class Decimals_converter(Screen):
             self.layouts.append(layout)      
             
 class Fractions_converter(Screen):
-    sm = ScreenManager()
-
-    def __init__(self, **kwargs):
-        super(Fractions_converter, self).__init__(**kwargs)
-        Window.bind(on_keyboard=self._key_handler)
-
-    def _key_handler(self, instance, key, *args):
-        if key == 27:
-            self.set_previous_screen()
-            return True
-
-    def set_previous_screen(self):
-        if sm.current != "Homepage":
-            sm.transition.direction = 'right'
-            sm.current = "List_of_Converters"     
-
+            
     layouts = []
     def convert_frac_to_perc(self,entry):
         print("entry ",entry)
@@ -775,17 +790,26 @@ class Percentages_converter(Screen):
     def __init__(self, **kwargs):
         super(Percentages_converter, self).__init__(**kwargs)
         Window.bind(on_keyboard=self._key_handler)
-
+    
     def _key_handler(self, instance, key, *args):
         if key == 27:
+            print("Its working ESC = 27 LENGTH at Perc")
             self.set_previous_screen()
             return True
-
+    
     def set_previous_screen(self):
-        if sm.current != "Homepage":
+        print("Length is almost working")   
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("Current Page:",sm.current)
+        if sm.current != "Homepage" and sm.current != "Menu" and sm.current != "List_of_Converters":
             sm.transition.direction = 'right'
             sm.current = "List_of_Converters"
-            
+            print("To list from Calc")
+        elif sm.current == "List_of_Converters":
+            sm.transition.direction = 'right'
+            sm.current = "Menu"
+            print("To Menu from List")
+    
     layouts = []
     def convert_perc_to_frac(self,entry):
         print("entry ",entry)
@@ -912,7 +936,6 @@ class Percentages_converter(Screen):
                 self.ids.list_of_steps.add_widget(Label(text= "-----", font_size = 75, size_hint_y= None, height=100))
                 self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
                 self.layouts.append(layout)  
-                
                     
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
@@ -931,9 +954,10 @@ class Percentages_converter(Screen):
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))   
             self.layouts.append(layout)
-            
+
 sm = ScreenManager()
-sm.add_widget(Homepage(name="Homepage")) 
+sm.add_widget(Homepage(name="Homepage"))
+sm.add_widget(Menu(name="Menu"))
 sm.add_widget(List_of_Converters(name="List_of_Converters")) 
 sm.add_widget(Fractions_converter(name="Fractions_converter"))
 sm.add_widget(Decimals_converter(name="Decimals_converter"))     
