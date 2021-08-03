@@ -57,7 +57,7 @@ Builder.load_string("""
             
             Button:
                 text: "Fractions, Decimals, Percentages Converters"  
-                font_size: 60
+                font_size: 50
                 background_color: 0, 0 , 1 , 1
                 size_hint_y: None
                 height: 200
