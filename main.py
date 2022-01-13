@@ -18,13 +18,23 @@ Builder.load_string("""
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
-        
+                
         Button:
             font_size: 50
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 200
             text: "Fractions, Decimals, and Percentage Converters"
+            on_release:
+                app.root.current = "Menu"
+                root.manager.transition.direction = "left"        
+                
+        Button:
+            font_size: 60
+            background_color: 0, 0 , 0 , 1
+            size_hint_y: None
+            height: 200
+            text: "KSquared-math,LLC ©"
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
