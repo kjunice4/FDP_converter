@@ -30,7 +30,7 @@ Builder.load_string("""
                 root.manager.transition.direction = "left"        
                 
         Button:
-            font_size: 60
+            font_size: 50
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 200
@@ -84,24 +84,6 @@ Builder.load_string("""
                 on_release:
                     import webbrowser
                     webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc')
-            Button:
-                font_size: 75
-                size_hint_y: None
-                height: 400
-                text: "Other apps from KSquared,LLC"
-                on_release:
-                    import webbrowser
-                    webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc/subscribe')   
-                
-            Button:
-                font_size: 75
-                size_hint_y: None
-                height: 400
-                text: "Donate to KSquared,LLC"
-                on_release:
-                    import webbrowser
-                    webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc/about-ksquared')
-            
 """)
 
 #List of converters
@@ -750,7 +732,7 @@ class Fractions_converter(Screen):
                     self.ids.list_of_steps.add_widget(Label(text= whole, font_size = 75, size_hint_y= None, height=100))
                     self.layouts.append(layout)
                 else:
-                    self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 60, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 50, size_hint_y= None, height=100))
                     self.layouts.append(layout)
             else:
                 self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
