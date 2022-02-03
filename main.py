@@ -885,7 +885,12 @@ class Percentages_converter(Screen):
             sm.current = "List_of_Converters"
             print("To list from Calc")
             
-        elif sm.current == "List_of_Converters" or sm.current == "updates":
+        elif sm.current == "updates":
+            sm.transition.direction = 'right'
+            sm.current = "Menu"
+            print("To Menu from updates")   
+            
+        elif sm.current == "List_of_Converters":
             sm.transition.direction = 'right'
             sm.current = "Menu"
             print("To Menu from List")
