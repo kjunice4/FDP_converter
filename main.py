@@ -79,11 +79,89 @@ Builder.load_string("""
             Button:
                 font_size: 75
                 size_hint_y: None
-                height: 400
+                height: 200
                 text: "Visit KSquared,LLC"
                 on_release:
                     import webbrowser
                     webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc')
+                    
+            Button:
+                font_size: 75
+                background_color: 1, 0, 1, 1
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "What's new?"
+                on_release:
+                    app.root.current = "updates"
+                    root.manager.transition.direction = "left"
+                    
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "Share KSquared-math,LLC ©"
+                    
+            Image:
+                source: 'KSquared_QR_code.png'
+                size_hint_y: None
+                height: 1000
+                width: 1000
+""")
+
+#Updates
+Builder.load_string("""
+<updates>
+    id:updates
+    name:"updates"
+    
+    ScrollView:
+        name: "Scroll"
+        do_scroll_x: False
+        do_scroll_y: True
+    
+        GridLayout:
+            cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
+            
+            Label:
+                font_size: 60
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "What's new at KSquared-math?"
+            
+            Button:
+                id: steps
+                text: "Menu"   
+                font_size: 75
+                size_hint_y: None
+                background_color: 0, 0 , 1 , 1
+                height: 200
+                padding: 10, 10
+                on_release:
+                    app.root.current = "Menu"
+                    root.manager.transition.direction = "right" 
+                    
+            Label:
+                font_size: 40
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "Fractions, Decimals, and Percent Converters v0.1"
+                
+            Label:
+                font_size: 40
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "No new updates as of 1/26/2022"
+            
 """)
 
 #List of converters
@@ -972,9 +1050,13 @@ class Percentages_converter(Screen):
             self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))   
             self.layouts.append(layout)
 
+class updates(Screen):
+    pass
+
 sm = ScreenManager()
 sm.add_widget(Homepage(name="Homepage"))
 sm.add_widget(Menu(name="Menu"))
+sm.add_widget(updates(name="updates"))
 sm.add_widget(List_of_Converters(name="List_of_Converters")) 
 sm.add_widget(Fractions_converter(name="Fractions_converter"))
 sm.add_widget(Decimals_converter(name="Decimals_converter"))     
