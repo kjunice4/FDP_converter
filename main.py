@@ -880,11 +880,12 @@ class Percentages_converter(Screen):
         print("Length is almost working")   
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("Current Page:",sm.current)
-        if sm.current != "Homepage" and sm.current != "Menu" and sm.current != "List_of_Converters":
+        if sm.current != "Homepage" and sm.current != "Menu" and sm.current != "List_of_Converters" and sm.current != "updates":
             sm.transition.direction = 'right'
             sm.current = "List_of_Converters"
             print("To list from Calc")
-        elif sm.current == "List_of_Converters":
+            
+        elif sm.current == "List_of_Converters" or sm.current == "updates":
             sm.transition.direction = 'right'
             sm.current = "Menu"
             print("To Menu from List")
