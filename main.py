@@ -76,16 +76,35 @@ Builder.load_string("""
                 text: "Menu"
             
             Button:
-                text: "Fractions, Decimals, Percentages Converters"  
-                font_size: 50
-                background_color: 0, 0 , 1 , 1
+                font_size: 75
                 size_hint_y: None
+                background_color: 0, 0 , 1 , 1
                 height: 200
-                padding: 10, 10
+                text: "Fractions Converter"
                 on_release:
-                    app.root.current = "List_of_Converters"
+                    app.root.current = "Fractions_converter"
                     root.manager.transition.direction = "left" 
-                    
+            
+            Button:
+                font_size: 75
+                size_hint_y: None
+                background_color: 0, 1 , 1 , 1
+                height: 200
+                text: "Decimals converter"
+                on_release:
+                    app.root.current = "Decimals_converter"
+                    root.manager.transition.direction = "left" 
+        
+            Button:
+                font_size: 75
+                size_hint_y: None
+                background_color: 1, 0 , 1 , 1
+                height: 200
+                text: "Percentages converter"
+                on_release:
+                    app.root.current = "Percentages_converter"
+                    root.manager.transition.direction = "left" 
+            
             Button:
                 font_size: 75
                 size_hint_y: None
@@ -174,65 +193,6 @@ Builder.load_string("""
             
 """)
 
-#List of converters
-Builder.load_string("""
-<List_of_Converters>:
-    id: List_of_Converters
-    name: "List_of_Converters"
-        
-    ScrollView:
-        name: "Scroll"
-        do_scroll_x: False
-        do_scroll_y: True
-    
-        GridLayout:
-            cols: 1
-            padding:10
-            spacing:10
-            size_hint: 1, None
-            width:200
-            height: self.minimum_height
-            
-            Button:
-                font_size: 75
-                size_hint_y: None
-                background_color: 0, 0 , 1 , 1
-                height: 300
-                text: "Fractions Converter"
-                on_release:
-                    app.root.current = "Fractions_converter"
-                    root.manager.transition.direction = "left" 
-            
-            Button:
-                font_size: 75
-                size_hint_y: None
-                background_color: 0, 0 , 1 , 1
-                height: 300
-                text: "Decimals converter"
-                on_release:
-                    app.root.current = "Decimals_converter"
-                    root.manager.transition.direction = "left" 
-        
-            Button:
-                font_size: 75
-                size_hint_y: None
-                background_color: 0, 0 , 1 , 1
-                height: 300
-                text: "Percentages converter"
-                on_release:
-                    app.root.current = "Percentages_converter"
-                    root.manager.transition.direction = "left" 
-                    
-            Button:
-                font_size: 75
-                size_hint_y: None
-                height: 300
-                text: "Back to Menu"
-                on_release:
-                    app.root.current = "Menu"
-                    root.manager.transition.direction = "right" 
-""")
-
 Builder.load_string("""
 <Percentages_converter>
     id: Percentages_converter
@@ -272,9 +232,9 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     background_color: 0, 0 , 1 , 1
-                    text: "Back"
+                    text: "Menu"
                     on_release:
-                        app.root.current = "List_of_Converters"
+                        app.root.current = "Menu"
                         root.manager.transition.direction = "right" 
                         
                 Button:
@@ -388,9 +348,9 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     background_color: 0, 0 , 1 , 1
-                    text: "Back"
+                    text: "Menu"
                     on_release:
-                        app.root.current = "List_of_Converters"
+                        app.root.current = "Menu"
                         root.manager.transition.direction = "right" 
                         
                 Button:
@@ -543,9 +503,9 @@ Builder.load_string("""
                     size_hint_y: None
                     height: 200
                     background_color: 0, 0 , 1 , 1
-                    text: "Back"
+                    text: "Menu"
                     on_release:
-                        app.root.current = "List_of_Converters"
+                        app.root.current = "Menu"
                         root.manager.transition.direction = "right" 
                         
                 Button:
@@ -626,9 +586,6 @@ class Homepage(Screen):
     pass
 
 class Menu(Screen):
-    pass
-
-class List_of_Converters(Screen):
     pass
 
 class Decimals_converter(Screen):
@@ -1073,7 +1030,6 @@ sm = ScreenManager()
 sm.add_widget(Homepage(name="Homepage"))
 sm.add_widget(Menu(name="Menu"))
 sm.add_widget(updates(name="updates"))
-sm.add_widget(List_of_Converters(name="List_of_Converters")) 
 sm.add_widget(Fractions_converter(name="Fractions_converter"))
 sm.add_widget(Decimals_converter(name="Decimals_converter"))     
 sm.add_widget(Percentages_converter(name="Percentages_converter")) 
