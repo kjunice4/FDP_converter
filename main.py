@@ -40,7 +40,7 @@ Builder.load_string("""
                 root.manager.transition.direction = "left" 
                 
         Button:
-            font_size: '20sp'
+            font_size: '15sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 100
