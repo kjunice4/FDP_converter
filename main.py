@@ -20,7 +20,7 @@ Builder.load_string("""
                 root.manager.transition.direction = "left" 
         
         Button:
-            font_size: 50
+            font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 200
@@ -30,7 +30,7 @@ Builder.load_string("""
                 root.manager.transition.direction = "left" 
         
         Button:
-            font_size: 50
+            font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 100
@@ -40,7 +40,7 @@ Builder.load_string("""
                 root.manager.transition.direction = "left" 
                 
         Button:
-            font_size: 50
+            font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 100
@@ -69,14 +69,14 @@ Builder.load_string("""
             height: self.minimum_height
             
             Label:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "Menu"
             
             Button:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 background_color: 0, 0 , 1 , 1
                 height: 200
@@ -86,7 +86,7 @@ Builder.load_string("""
                     root.manager.transition.direction = "left" 
             
             Button:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 background_color: 0, 1 , 1 , 1
                 height: 200
@@ -96,7 +96,7 @@ Builder.load_string("""
                     root.manager.transition.direction = "left" 
         
             Button:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 background_color: 1, 0 , 1 , 1
                 height: 200
@@ -106,7 +106,7 @@ Builder.load_string("""
                     root.manager.transition.direction = "left" 
             
             Button:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -116,7 +116,7 @@ Builder.load_string("""
                     webbrowser.open('https://www.ksquaredmathematics.com/subscribe') 
                     
             Button:
-                font_size: 75
+                font_size: '20sp'
                 background_color: 1, 0, 1, 1
                 size_hint_y: None
                 height: 200
@@ -127,7 +127,7 @@ Builder.load_string("""
                     root.manager.transition.direction = "left"
                     
             Label:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -136,8 +136,8 @@ Builder.load_string("""
             Image:
                 source: 'KSquared_QR.png'
                 size_hint_y: None
-                height: 1000
-                width: 1000
+                height: 800
+                width: 800
 """)
 
 #Updates
@@ -160,7 +160,7 @@ Builder.load_string("""
             height: self.minimum_height
             
             Label:
-                font_size: 60
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -169,7 +169,7 @@ Builder.load_string("""
             Button:
                 id: steps
                 text: "Menu"   
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 background_color: 0, 0 , 1 , 1
                 height: 200
@@ -179,14 +179,14 @@ Builder.load_string("""
                     root.manager.transition.direction = "right" 
                     
             Label:
-                font_size: 40
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "Fractions, Decimals, and Percent Converters v0.1"
                 
             Label:
-                font_size: 40
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -214,7 +214,7 @@ Builder.load_string("""
             
             Label:
                 text: "Percentages Converter"   
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -229,7 +229,7 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     background_color: 0, 0 , 1 , 1
@@ -241,7 +241,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Clear All"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 1, 0 , 0 , 1
                     height: 200
@@ -262,7 +262,7 @@ Builder.load_string("""
                     text: input.text
                     hint_text: "Percentage:"
                     multiline: False
-                    font_size: 125
+                    font_size: '35sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
@@ -272,7 +272,7 @@ Builder.load_string("""
                 size_hint_y: None
                 height: 200
                 text: "Convert To:"
-                font_size: 75
+                font_size: '20sp'
                 
             BoxLayout:
                 cols: 2
@@ -283,7 +283,7 @@ Builder.load_string("""
                          
                 Button:
                     text: "Fraction"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     padding: 10, 10
@@ -295,7 +295,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Decimal"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 0, 0 , 1 , 1
                     height: 200
@@ -330,7 +330,7 @@ Builder.load_string("""
             
             Label:
                 text: "Fractions Converter"   
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -345,7 +345,7 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     background_color: 0, 0 , 1 , 1
@@ -357,7 +357,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Clear All"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 1, 0 , 0 , 1
                     height: 200
@@ -380,7 +380,7 @@ Builder.load_string("""
                     text: Whole.text
                     hint_text: "Whole:"
                     multiline: False
-                    font_size: 125
+                    font_size: '35sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
@@ -398,7 +398,7 @@ Builder.load_string("""
                     text: Numerator.text
                     hint_text: "Numerator"
                     multiline: False
-                    font_size: 125
+                    font_size: '35sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
@@ -416,7 +416,7 @@ Builder.load_string("""
                     text: Denomenator.text
                     hint_text: "Denomenator"
                     multiline: False
-                    font_size: 125
+                    font_size: '35sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
@@ -426,7 +426,7 @@ Builder.load_string("""
                 size_hint_y: None
                 height: 200
                 text: "Convert To:"
-                font_size: 75
+                font_size: '20sp'
                 
             BoxLayout:
                 cols: 2
@@ -437,7 +437,7 @@ Builder.load_string("""
                          
                 Button:
                     text: "Percent"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     padding: 10, 10
@@ -449,7 +449,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Decimal"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 0, 0 , 1 , 1
                     height: 200
@@ -485,7 +485,7 @@ Builder.load_string("""
             
             Label:
                 text: "Decimals Converter"   
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -500,7 +500,7 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     background_color: 0, 0 , 1 , 1
@@ -512,7 +512,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Clear All"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 1, 0 , 0 , 1
                     height: 200
@@ -533,7 +533,7 @@ Builder.load_string("""
                     text: input.text
                     hint_text: "Decimal:"
                     multiline: False
-                    font_size: 125
+                    font_size: '35sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
@@ -543,7 +543,7 @@ Builder.load_string("""
                 size_hint_y: None
                 height: 200
                 text: "Convert To:"
-                font_size: 75
+                font_size: '20sp'
                 
             BoxLayout:
                 cols: 2
@@ -554,7 +554,7 @@ Builder.load_string("""
                          
                 Button:
                     text: "Fraction"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     padding: 10, 10
@@ -566,7 +566,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Percent"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 0, 0 , 1 , 1
                     height: 200
@@ -622,7 +622,7 @@ class Decimals_converter(Screen):
                         numerator = int(numerator) / 50
                         denomenator = int(denomenator) / 50
                         print("numerator 50 ",numerator)
-                        print("denomenator 50 ",denomenator)
+                        print("numerator 50 ",denomenator)
                         if numerator % 50 != 0 or denomenator % 50 != 0:
                             break
                     
@@ -666,16 +666,16 @@ class Decimals_converter(Screen):
                     numerator = ""
                     denomenator = ""
                     
-                self.ids.list_of_steps.add_widget(Label(text= str(entry) + " to Fraction = ", font_size = 75, size_hint_y= None, height=100))
-                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(str(denomenator)) + "  " * len(whole), font_size = 75, size_hint_y= None, height=100))
-                self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(entry) + " to Fraction = ", font_size = '20sp', size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(str(denomenator)) + "  " * len(whole), font_size = '20sp', size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
                 self.layouts.append(layout) 
             else:
-                self.ids.list_of_steps.add_widget(Label(text="Enter a decimal number", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text="Enter a decimal number", font_size = '20sp', size_hint_y= None, height=100))
                 self.layouts.append(layout) 
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
             self.layouts.append(layout)
             
     def convert_dec_to_perc(self,entry):
@@ -717,13 +717,13 @@ class Decimals_converter(Screen):
                     print("percent",percent)
                     
                 
-                self.ids.list_of_steps.add_widget(Label(text=percent, font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text=percent, font_size = '20sp', size_hint_y= None, height=100))
                 self.layouts.append(layout)
             else:
-                self.ids.list_of_steps.add_widget(Label(text="Enter a decimal number", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text="Enter a decimal number", font_size = '20sp', size_hint_y= None, height=100))
                 self.layouts.append(layout) 
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
             self.layouts.append(layout)      
             
 class Fractions_converter(Screen):
@@ -747,10 +747,10 @@ class Fractions_converter(Screen):
                     numerator = 1
                     denomenator = 1
                 if int(numerator) < int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= " to Percentage = ", font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0","") , font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(denomenator) + "  " * len(str(whole)), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= " to Percentage = ", font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)
                     
                     last_digits = str(int(numerator) / int(denomenator))
@@ -759,32 +759,32 @@ class Fractions_converter(Screen):
                         if str(whole)[0] != "-":
                             percentage = str((float(whole) + float(last_digits)) * 100) + "%"
                             print("percentage",percentage)
-                            self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
+                            self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = '20sp', size_hint_y= None, height=100))
                             self.layouts.append(layout)
                         else:
                             percentage = str((float(whole) - float(last_digits)) * 100) + "%"
                             print("percentage",percentage)
-                            self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
+                            self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = '20sp', size_hint_y= None, height=100))
                             self.layouts.append(layout)
                     else:
                         percentage = str((float(last_digits)) * 100) + "%"
                         print("percentage",percentage)
-                        self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = 75, size_hint_y= None, height=100))
+                        self.ids.list_of_steps.add_widget(Label(text= percentage, font_size = '20sp', size_hint_y= None, height=100))
                         self.layouts.append(layout)
                     
                 elif int(numerator) == int(denomenator) or str(numerator) == str(denomenator):
                     whole = str(int(whole) * 100) + "%"
                     print("whole",whole)
-                    self.ids.list_of_steps.add_widget(Label(text= whole, font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= whole, font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)
                 else:
-                    self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 50, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)
             else:
-                self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+                self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
                 self.layouts.append(layout)
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
             self.layouts.append(layout)
             
     def convert_frac_to_dec(self,entry):
@@ -803,10 +803,10 @@ class Fractions_converter(Screen):
             
             if numerator[0] != "-" and denomenator[0] != "-":
                 if int(numerator) < int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= str(numerator), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(whole)+ " " + "---" * len(numerator) + "  " * len(str(whole)), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= " to Decimal = ", font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(numerator), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(whole)+ " " + "---" * len(numerator) + "  " * len(str(whole)), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= " to Decimal = ", font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)
                     
                     last_digits = str(int(numerator) / int(denomenator))
@@ -819,16 +819,16 @@ class Fractions_converter(Screen):
                     if decimal.count(".") > 1:
                         index = decimal.find(".")
                         decimal = decimal[:index] + decimal[index+1:]
-                    self.ids.list_of_steps.add_widget(Label(text= decimal, font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= decimal, font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)
                 else:
-                  self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = 50, size_hint_y= None, height=100))
+                  self.ids.list_of_steps.add_widget(Label(text="Numerator exceeds Denomenator", font_size = '20sp', size_hint_y= None, height=100))
                   self.layouts.append(layout)      
             else:
-                  self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+                  self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
                   self.layouts.append(layout)  
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
             self.layouts.append(layout)  
             
 class Percentages_converter(Screen):
@@ -868,7 +868,7 @@ class Percentages_converter(Screen):
         print("entry ",entry)
         layout = GridLayout(cols=1,size_hint_y= None)
         try:
-            # 2, 4, 5, 10, 25, 50
+            # 2, 4, 5, 10, 25, '20sp'
             if len(entry) > 2:
                 numerator = entry[-2:]
                 whole = entry[:-2]
@@ -880,7 +880,7 @@ class Percentages_converter(Screen):
                         numerator = int(numerator) / 50
                         denomenator = int(denomenator) / 50
                         print("numerator 50 ",numerator)
-                        print("denomenator 50 ",denomenator)
+                        print("numerator 50 ",denomenator)
                         if numerator % 50 != 0 or denomenator % 50 != 0:
                             break
                 
@@ -927,17 +927,17 @@ class Percentages_converter(Screen):
                     numerator = str(numerator)[1]    
                     
                 if int(numerator) != int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= str(entry) + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(str(denomenator)) + "  ", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(entry) + "% to Fraction = ", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(whole).replace(".0","") + " " + "---" * len(str(denomenator)) + "  ", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)     
                 
                 if int(numerator) == int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(entry).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= "-----", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(entry).replace(".0","") , font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= "-----", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)   
                 
             if len(entry) <= 2:
@@ -949,7 +949,7 @@ class Percentages_converter(Screen):
                         numerator = int(numerator) / 50
                         denomenator = int(denomenator) / 50
                         print("numerator 50 ",numerator)
-                        print("denomenator 50 ",denomenator)
+                        print("numerator 50 ",denomenator)
                         if numerator % 50 != 0 or denomenator % 50 != 0:
                             break
                     
@@ -993,21 +993,21 @@ class Percentages_converter(Screen):
                     numerator = str(numerator)[1]
                     
                 if int(numerator) != int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= str(entry) + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= "----", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(entry) + "% to Fraction = ", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(numerator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= "----", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)     
                     
                 if int(numerator) == int(denomenator):
-                    self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(entry).replace(".0","") , font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= "-----", font_size = 75, size_hint_y= None, height=100))
-                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = 75, size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= entry + "% to Fraction = ", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(entry).replace(".0","") , font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= "-----", font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.list_of_steps.add_widget(Label(text= str(denomenator).replace(".0",""), font_size = '20sp', size_hint_y= None, height=100))
                     self.layouts.append(layout)  
                 
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))
             self.layouts.append(layout)
             
     def convert_perc_to_dec(self,entry):
@@ -1017,11 +1017,11 @@ class Percentages_converter(Screen):
             dec = entry + "/100"
             evaled = str(eval(dec))
             print("evaled",evaled)
-            self.ids.list_of_steps.add_widget(Label(text= entry + "% to Decimal = ", font_size = 75, size_hint_y= None, height=100))
-            self.ids.list_of_steps.add_widget(Label(text= evaled, font_size = 75, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= entry + "% to Decimal = ", font_size = '20sp', size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= evaled, font_size = '20sp', size_hint_y= None, height=100))
             self.layouts.append(layout)
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = 75, size_hint_y= None, height=100))   
+            self.ids.list_of_steps.add_widget(Label(text="Invalid Input", font_size = '20sp', size_hint_y= None, height=100))   
             self.layouts.append(layout)
 
 class updates(Screen):
